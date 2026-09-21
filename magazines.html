@@ -1,1 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Magazines — Peaches Atelier</title>
+
+  <style>
+    :root {
+      --ivory: #f9f5f0;
+      --cream: #f1e9e2;
+      --blush: #e7c8c8;
+      --champagne: #c8a875;
+      --black: #151313;
+      --gray: #756d69;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--ivory);
+      color: var(--black);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      padding: 28px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(21,19,19,0.12);
+    }
+
+    .logo {
+      text-align: center;
+      line-height: .9;
+    }
+
+    .logo-main {
+      font-family: Georgia, serif;
+      font-size: 30px;
+      font-style: italic;
+      letter-spacing: -1px;
+    }
+
+    .logo-sub {
+      font-size: 8px;
+      letter-spacing: 4px;
+      margin-top: 8px;
+    }
+
+    .back {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .intro {
+      padding: 100px 6% 80px;
+      max-width: 950px;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--champagne);
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-weight: normal;
+      font-size: clamp(55px, 11vw, 120px);
+      letter-spacing: -6px;
+      line-height: .85;
+    }
+
+    .intro p {
+      max-width: 620px;
+      color: var(--gray);
+      font-size: 15px;
+      line-height: 1.8;
+      margin-top: 35px;
+    }
+
+    /* FEATURED ISSUE */
+
+    .featured-issue {
+      padding: 0 6% 120px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .magazine-cover {
+      background: var(--cream);
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .magazine-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .cover-placeholder {
+      color: var(--gray);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .issue-number {
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: var(--champagne);
+      margin-bottom: 18px;
+    }
+
+    .issue-title {
+      font-family: Georgia, serif;
+      font-size: clamp(45px, 7vw, 80px);
+      font-weight: normal;
+      line-height: .9;
+      letter-spacing: -3px;
+    }
+
+    .issue-description {
+      color: var(--gray);
+      line-height: 1.8;
+      font-size: 14px;
+      margin-top: 30px;
+      max-width: 450px;
+    }
+
+    .issue-meta {
+      margin-top: 35px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(21,19,19,.15);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* EDITORIAL */
+
+    .editorial {
+      background: var(--black);
+      color: var(--white);
+      padding: 120px 6%;
+    }
+
+    .editorial .eyebrow {
+      color: var(--blush);
+    }
+
+    .editorial h2 {
+      font-family: Georgia, serif;
+      font-weight: normal;
+      font-size: clamp(42px, 7vw, 80px);
+      line-height: .95;
+      max-width: 850px;
+      margin-bottom: 70px;
+    }
+
+    .editorial-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .editorial-card {
+      border-top: 1px solid rgba(255,255,255,.25);
+      padding-top: 22px;
+    }
+
+    .editorial-number {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--blush);
+      margin-bottom: 15px;
+    }
+
+    .editorial-card h3 {
+      font-family: Georgia, serif;
+      font-size: 28px;
+      font-weight: normal;
+      margin-bottom: 15px;
+    }
+
+    .editorial-card p {
+      color: #c9c2bd;
+      font-size: 13px;
+      line-height: 1.8;
+      max-width: 430px;
+    }
+
+    /* ARCHIVE */
+
+    .archive {
+      padding: 120px 6%;
+    }
+
+    .archive h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(45px, 7vw, 80px);
+      font-weight: normal;
+      margin-bottom: 60px;
+    }
+
+    .archive-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 0;
+      border-top: 1px solid rgba(21,19,19,.15);
+      font-size: 13px;
+    }
+
+    .archive-item:last-child {
+      border-bottom: 1px solid rgba(21,19,19,.15);
+    }
+
+    .archive-date {
+      color: var(--gray);
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    footer {
+      padding: 60px 6%;
+      text-align: center;
+    }
+
+    footer p {
+      margin-top: 20px;
+      color: var(--gray);
+      font-size: 12px;
+    }
+
+    @media (max-width: 700px) {
+
+      header {
+        padding: 22px 5%;
+      }
+
+      .intro {
+        padding: 75px 5% 60px;
+      }
+
+      h1 {
+        letter-spacing: -3px;
+      }
+
+      .featured-issue {
+        grid-template-columns: 1fr;
+        padding: 0 5% 80px;
+        gap: 50px;
+      }
+
+      .magazine-cover {
+        min-height: 70vh;
+      }
+
+      .editorial {
+        padding: 90px 5%;
+      }
+
+      .editorial-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .archive {
+        padding: 90px 5%;
+      }
+
+      .archive-item {
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+
+    <a href="index.html" class="back">
+      ← Back
+    </a>
+
+    <div class="logo">
+      <div class="logo-main">peaches</div>
+      <div class="logo-sub">ATELIER</div>
+    </div>
+
+    <div></div>
+
+  </header>
+
+
+  <main>
+
+    <!-- INTRO -->
+
+    <section class="intro">
+
+      <div class="eyebrow">
+        Peaches Atelier
+      </div>
+
+      <h1>
+        Magazines
+      </h1>
+
+      <p>
+        A visual archive of fashion, culture and creative
+        expression. Peaches Magazine explores the people,
+        garments and ideas shaping the world of Peaches Atelier.
+      </p>
+
+    </section>
+
+
+    <!-- FEATURED ISSUE -->
+
+    <section class="featured-issue">
+
+      <div class="magazine-cover">
+
+        <div class="cover-placeholder">
+          July 2026<br><br>
+          Peaches Magazine Cover
+        </div>
+
+      </div>
+
+
+      <div class="issue-content">
+
+        <div class="issue-number">
+          ISSUE 01 · JULY 2026
+        </div>
+
+        <h2 class="issue-title">
+          Peaches<br>
+          Magazine
+        </h2>
+
+        <p class="issue-description">
+          The first issue of Peaches Magazine introduces
+          the visual language of the atelier — fashion,
+          identity, youth and the art of becoming.
+        </p>
+
+        <div class="issue-meta">
+          Fashion · Culture · Art · Identity
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- EDITORIAL STORY -->
+
+    <section class="editorial">
+
+      <div class="eyebrow">
+        Inside The Issue
+      </div>
+
+      <h2>
+        More than fashion.<br>
+        A world being created.
+      </h2>
+
+
+      <div class="editorial-grid">
+
+        <article class="editorial-card">
+
+          <div class="editorial-number">
+            01 · FASHION
+          </div>
+
+          <h3>
+            The Garment
+          </h3>
+
+          <p>
+            Silhouette, texture and detail become a language
+            through which each look communicates its own identity.
+          </p>
+
+        </article>
+
+
+        <article class="editorial-card">
+
+          <div class="editorial-number">
+            02 · IDENTITY
+          </div>
+
+          <h3>
+            Becoming
+          </h3>
+
+          <p>
+            A visual exploration of youth, confidence and the
+            freedom to shape your own image.
+          </p>
+
+        </article>
+
+
+        <article class="editorial-card">
+
+          <div class="editorial-number">
+            03 · CULTURE
+          </div>
+
+          <h3>
+            Our Language
+          </h3>
+
+          <p>
+            Culture and contemporary fashion meet through
+            references, craftsmanship and reinterpretation.
+          </p>
+
+        </article>
+
+
+        <article class="editorial-card">
+
+          <div class="editorial-number">
+            04 · ART
+          </div>
+
+          <h3>
+            The Image
+          </h3>
+
+          <p>
+            Photography becomes part of the garment itself,
+            transforming fashion into a complete visual experience.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ARCHIVE -->
+
+    <section class="archive">
+
+      <div class="eyebrow">
+        The Archive
+      </div>
+
+      <h2>
+        Issues
+      </h2>
+
+
+      <div class="archive-item">
+
+        <span>
+          Peaches Magazine · Issue 01
+        </span>
+
+        <span class="archive-date">
+          July 2026
+        </span>
+
+      </div>
+
+
+      <div class="archive-item">
+
+        <span>
+          Issue 02
+        </span>
+
+        <span class="archive-date">
+          Coming Soon
+        </span>
+
+      </div>
+
+
+      <div class="archive-item">
+
+        <span>
+          Issue 03
+        </span>
+
+        <span class="archive-date">
+          Coming Soon
+        </span>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    <div class="logo">
+
+      <div class="logo-main">
+        peaches
+      </div>
+
+      <div class="logo-sub">
+        ATELIER
+      </div>
+
+    </div>
+
+    <p>
+      © 2026 Peaches Atelier
+    </p>
+
+  </footer>
+
+</body>
+</html>
