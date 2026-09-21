@@ -1,1 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Collections — Peaches Atelier</title>
+
+  <style>
+    :root {
+      --ivory: #f9f5f0;
+      --cream: #f1e9e2;
+      --blush: #e7c8c8;
+      --champagne: #c8a875;
+      --black: #151313;
+      --gray: #756d69;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--ivory);
+      color: var(--black);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      padding: 28px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(21,19,19,0.12);
+    }
+
+    .logo {
+      text-align: center;
+      line-height: .9;
+    }
+
+    .logo-main {
+      font-family: Georgia, serif;
+      font-size: 30px;
+      font-style: italic;
+      letter-spacing: -1px;
+    }
+
+    .logo-sub {
+      font-size: 8px;
+      letter-spacing: 4px;
+      margin-top: 8px;
+    }
+
+    .back {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .intro {
+      padding: 100px 6% 80px;
+      max-width: 900px;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--champagne);
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-weight: normal;
+      font-size: clamp(55px, 11vw, 120px);
+      letter-spacing: -6px;
+      line-height: .85;
+    }
+
+    .intro p {
+      max-width: 600px;
+      color: var(--gray);
+      font-size: 15px;
+      line-height: 1.8;
+      margin-top: 35px;
+    }
+
+    /* COLLECTION GRID */
+
+    .collection-grid {
+      padding: 0 6% 120px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px 30px;
+    }
+
+    .collection-card {
+      display: block;
+    }
+
+    .collection-image {
+      width: 100%;
+      height: 70vh;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      overflow: hidden;
+    }
+
+    .collection-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .collection-info {
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      border-bottom: 1px solid rgba(21,19,19,.15);
+      padding-bottom: 22px;
+    }
+
+    .collection-number {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--champagne);
+      margin-bottom: 10px;
+    }
+
+    .collection-title {
+      font-family: Georgia, serif;
+      font-size: 30px;
+      font-weight: normal;
+    }
+
+    .collection-description {
+      max-width: 270px;
+      color: var(--gray);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* FEATURED */
+
+    .featured {
+      background: var(--black);
+      color: var(--white);
+      padding: 120px 6%;
+      text-align: center;
+    }
+
+    .featured .eyebrow {
+      color: var(--blush);
+    }
+
+    .featured h2 {
+      font-family: Georgia, serif;
+      font-weight: normal;
+      font-size: clamp(40px, 7vw, 75px);
+      margin-bottom: 30px;
+    }
+
+    .featured p {
+      max-width: 550px;
+      margin: auto;
+      color: #c9c2bd;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 60px 6%;
+      text-align: center;
+    }
+
+    footer p {
+      margin-top: 20px;
+      color: var(--gray);
+      font-size: 12px;
+    }
+
+    @media (max-width: 700px) {
+
+      header {
+        padding: 22px 5%;
+      }
+
+      .intro {
+        padding: 75px 5% 60px;
+      }
+
+      h1 {
+        letter-spacing: -3px;
+      }
+
+      .collection-grid {
+        grid-template-columns: 1fr;
+        padding: 0 5% 80px;
+        gap: 70px;
+      }
+
+      .collection-image {
+        height: 65vh;
+      }
+
+      .collection-info {
+        display: block;
+      }
+
+      .collection-description {
+        margin-top: 15px;
+      }
+
+      .featured {
+        padding: 90px 5%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+
+    <a href="index.html" class="back">
+      ← Back
+    </a>
+
+    <div class="logo">
+      <div class="logo-main">peaches</div>
+      <div class="logo-sub">ATELIER</div>
+    </div>
+
+    <div></div>
+
+  </header>
+
+
+  <main>
+
+    <section class="intro">
+
+      <div class="eyebrow">
+        Peaches Atelier
+      </div>
+
+      <h1>
+        Collections
+      </h1>
+
+      <p>
+        Garments shaped through craft, imagination and culture.
+        Each collection explores a different chapter of the
+        Peaches Atelier universe.
+      </p>
+
+    </section>
+
+
+    <section class="collection-grid">
+
+
+      <!-- COLLECTION 01 -->
+
+      <article class="collection-card">
+
+        <div class="collection-image">
+          Collection 01
+        </div>
+
+        <div class="collection-info">
+
+          <div>
+
+            <div class="collection-number">
+              COLLECTION 01 · 2026
+            </div>
+
+            <h2 class="collection-title">
+              Coming Soon
+            </h2>
+
+          </div>
+
+          <p class="collection-description">
+            A new chapter is taking shape.
+            The garments, the story and the world
+            behind the collection will be revealed here.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- COLLECTION 02 -->
+
+      <article class="collection-card">
+
+        <div class="collection-image">
+          Collection 02
+        </div>
+
+        <div class="collection-info">
+
+          <div>
+
+            <div class="collection-number">
+              COLLECTION 02
+            </div>
+
+            <h2 class="collection-title">
+              Coming Soon
+            </h2>
+
+          </div>
+
+          <p class="collection-description">
+            A future expression of Peaches Atelier,
+            developed through silhouette, texture
+            and movement.
+          </p>
+
+        </div>
+
+      </article>
+
+
+    </section>
+
+
+    <section class="featured">
+
+      <div class="eyebrow">
+        The Peaches Archive
+      </div>
+
+      <h2>
+        Every collection<br>
+        tells a story.
+      </h2>
+
+      <p>
+        From the first sketch to the finished garment,
+        each collection becomes part of an evolving
+        fashion archive.
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    <div class="logo">
+      <div class="logo-main">peaches</div>
+      <div class="logo-sub">ATELIER</div>
+    </div>
+
+    <p>
+      © 2026 Peaches Atelier
+    </p>
+
+  </footer>
+
+</body>
+</html>
