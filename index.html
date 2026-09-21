@@ -3,143 +3,363 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Peaches Atelier</title>
+  <title>Peaches Atelier | High Fashion & Couture</title>
   <style>
     :root {
       --bg: #FFFFFF;
-      --sky-blue: #BCE3F5;
-      --soft-yellow: #FFF1A8;
+      --sky-blue: #C1E8FA;
+      --soft-yellow: #FFF3AD;
       --black: #111111;
-      --gray: #666666;
+      --gray: #555555;
+      --light-gray: #F5FAFD;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Playfair Display", Georgia, "Segoe UI", Roboto, sans-serif;
       background-color: var(--bg);
       color: var(--black);
-      line-height: 1.5;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
+
+    /* HEADER & NAVIGATION */
     header {
-      padding: 1.5rem 1rem;
+      position: sticky;
+      top: 0;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      z-index: 100;
       border-bottom: 1px solid var(--sky-blue);
-      text-align: center;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
+
     .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
-      letter-spacing: 2px;
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 3px;
       text-transform: lowercase;
+      color: var(--black);
+      text-decoration: none;
     }
-    .tagline {
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--black);
       font-size: 0.85rem;
-      color: var(--gray);
-      margin-top: 0.25rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
+
+    /* HERO SECTION */
     .hero {
-      background: linear-gradient(180deg, var(--sky-blue) 0%, var(--bg) 100%);
-      padding: 2.5rem 1.25rem;
+      background: linear-gradient(180deg, var(--sky-blue) 0%, #FFFFFF 100%);
+      padding: 3rem 1.5rem 4rem 1.5rem;
       text-align: center;
     }
-    .hero h1 {
-      font-size: 2rem;
-      margin-bottom: 0.75rem;
+
+    .hero-subtitle {
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 0.5rem;
     }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
     .hero p {
       font-size: 1rem;
       color: var(--gray);
-      max-width: 500px;
-      margin: 0 auto 1.5rem auto;
+      max-width: 600px;
+      margin: 0 auto 2rem auto;
     }
+
     .cta-btn {
       display: inline-block;
       background-color: var(--soft-yellow);
       color: var(--black);
-      padding: 0.8rem 1.5rem;
-      font-weight: bold;
+      padding: 0.9rem 2rem;
+      font-weight: 700;
+      font-size: 0.9rem;
       border-radius: 30px;
       text-decoration: none;
-      border: 1px solid var(--black);
+      border: 1.5px solid var(--black);
+      box-shadow: 3px 3px 0px var(--black);
+      transition: all 0.2s ease;
     }
-    .image-card {
-      margin: 1.5rem 1.25rem;
-      border: 2px dashed var(--sky-blue);
-      border-radius: 12px;
-      height: 250px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background-color: #F8FDFF;
-      background-size: cover;
-      background-position: center;
-      position: relative;
+
+    .hero-banner-img {
+      width: 100%;
+      max-width: 900px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-top: 2.5rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      border: 3px solid #ffffff;
     }
-    .image-card input {
-      display: none;
-    }
-    .upload-btn {
-      background-color: var(--black);
-      color: var(--bg);
-      padding: 0.6rem 1.2rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      cursor: pointer;
-    }
-    .section-title {
-      font-size: 1.3rem;
+
+    /* FEATURED SERVICES / SERVICES SECTION */
+    .services {
+      padding: 4rem 1.5rem;
+      background-color: var(--bg);
       text-align: center;
-      margin-top: 2rem;
     }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+
+    .section-desc {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background-color: var(--light-gray);
+      border: 1px solid var(--sky-blue);
+      padding: 2rem 1.5rem;
+      border-radius: 12px;
+      text-align: left;
+    }
+
+    .service-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--black);
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    /* GALLERY / COLLECTIONS SECTION */
+    .collections {
+      padding: 4rem 1.5rem;
+      background-color: var(--light-gray);
+      border-top: 1px solid var(--sky-blue);
+      border-bottom: 1px solid var(--sky-blue);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 2rem auto 0 auto;
+    }
+
+    .gallery-card {
+      background: var(--bg);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-card-content {
+      padding: 1.25rem;
+    }
+
+    .gallery-card-content h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .gallery-card-content p {
+      font-size: 0.85rem;
+      color: var(--gray);
+    }
+
+    /* CONTACT & FOOTER */
+    .contact-section {
+      padding: 4rem 1.5rem;
+      text-align: center;
+      background-color: var(--soft-yellow);
+      border-bottom: 1px solid var(--black);
+    }
+
+    .contact-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      background-color: var(--black);
+      color: #ffffff;
+      padding: 0.9rem 2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
     footer {
       background-color: var(--black);
       color: #ffffff;
-      padding: 2rem 1rem;
+      padding: 3rem 1.5rem;
       text-align: center;
-      margin-top: 3rem;
       font-size: 0.85rem;
+    }
+
+    footer p {
+      opacity: 0.8;
+      margin-bottom: 1rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .social-links a {
+      color: var(--sky-blue);
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      nav { display: none; } /* Mobile clean view */
+      .hero h1 { font-size: 1.8rem; }
+      .hero-banner-img { height: 280px; }
     }
   </style>
 </head>
 <body>
 
+  <!-- HEADER -->
   <header>
-    <div class="logo">peaches atelier</div>
-    <div class="tagline">fashion • culture • art</div>
+    <a href="#" class="logo">peaches atelier</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#collections">Collections</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <section class="hero">
-    <h1>Fashion shaped by craft & imagination</h1>
-    <p>An independent fashion atelier creating expressive pieces between artistry and contemporary style.</p>
-    <a href="#collections" class="cta-btn">Explore Collections</a>
+  <!-- HERO SECTION -->
+  <section class="hero" id="about">
+    <div class="hero-subtitle">WELCOME TO PEACHES ATELIER</div>
+    <h1>Fashion shaped by craft, imagination & culture</h1>
+    <p>An independent high-fashion atelier creating expressive luxury pieces that exist between artistry, identity, and contemporary style.</p>
+    <a href="#collections" class="cta-btn">Explore Our World →</a>
+    
+    <img class="hero-banner-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80" alt="Peaches Atelier Hero Model">
   </section>
 
-  <h2 class="section-title" id="collections">Featured Look</h2>
-  
-  <div class="image-card" id="card1">
-    <label class="upload-btn">
-      📷 Select Photo from Phone
-      <input type="file" accept="image/*" onchange="previewImage(event, 'card1')">
-    </label>
-  </div>
+  <!-- SERVICES SECTION -->
+  <section class="services" id="services">
+    <h2 class="section-title">WHAT WE DO</h2>
+    <p class="section-desc">Tailored craftsmanship and bespoke fashion services</p>
 
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Fashion Design</h3>
+        <p>Contemporary bespoke garments, high-fashion tailored wear, and custom couture pieces crafted to perfection.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Creative Direction</h3>
+        <p>Visual storytelling, high-concept brand campaigns, and artistic direction for runway and editorial projects.</p>
+      </div>
+
+      <div class="service-card">
+        <h3>Editorial & Styling</h3>
+        <p>Fashion stories, magazine editorials, and exclusive red-carpet lookbook styling for distinct identities.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY / COLLECTIONS -->
+  <section class="collections" id="collections">
+    <div style="text-align: center;">
+      <h2 class="section-title">EXPLORE THE WORLD</h2>
+      <p class="section-desc">Discover our latest collections and editorial campaigns</p>
+    </div>
+
+    <div class="gallery-grid">
+      <!-- Card 1 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80" alt="Campaigns">
+        <div class="gallery-card-content">
+          <h4>Campaigns</h4>
+          <p>Stories that move culture and redefine contemporary luxury silhouette.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="Collections">
+        <div class="gallery-card-content">
+          <h4>Collections</h4>
+          <p>Wearable art and timeless couture tailored for high expression.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80" alt="Magazines">
+        <div class="gallery-card-content">
+          <h4>Magazines & Editorial</h4>
+          <p>Fashion, culture, and artistry documented in curated issues.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section" id="contact">
+    <h2 class="section-title">LET'S CREATE SOMETHING.</h2>
+    <p>For collaborations, custom pieces, press, or general enquiries, reach out directly to our team.</p>
+    <a href="mailto:contact@peachesatelier.com" class="contact-btn">Send an Enquiry</a>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
     <p>© 2026 Peaches Atelier. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#">Instagram</a>
+      <a href="#">WhatsApp</a>
+      <a href="#">Email</a>
+    </div>
   </footer>
-
-  <script>
-    function previewImage(event, cardId) {
-      const file = event.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          const card = document.getElementById(cardId);
-          card.style.backgroundImage = `url('${e.target.result}')`;
-          card.querySelector('.upload-btn').style.opacity = '0.5';
-        }
-        reader.readAsDataURL(file);
-      }
-    }
-  </script>
 
 </body>
 </html>
