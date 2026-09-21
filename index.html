@@ -6,266 +6,436 @@
   <title>Peaches Atelier | High Fashion & Couture</title>
   <style>
     :root {
-      --bg: #FFFFFF;
-      --sky-blue: #C1E8FA;
-      --soft-yellow: #FFF3AD;
-      --black: #111111;
-      --gray: #555555;
-      --light-gray: #F5FAFD;
+      --ivory: #F9F5F0;
+      --cream: #F3ECE5;
+      --blush: #E8C9C8;
+      --blush-light: #F4E4E2;
+      --champagne: #C9A875;
+      --black: #151313;
+      --soft-black: #2A2525;
+      --gray: #756D69;
+      --white: #FFFFFF;
     }
-
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
+    html {
+      scroll-behavior: smooth;
+    }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Playfair Display", Georgia, "Segoe UI", Roboto, sans-serif;
-      background-color: var(--bg);
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--ivory);
       color: var(--black);
       line-height: 1.6;
       overflow-x: hidden;
     }
-
-    /* HEADER & NAVIGATION */
+    /* =========================
+       HEADER
+    ========================= */
     header {
       position: sticky;
       top: 0;
-      background-color: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(8px);
-      z-index: 100;
-      border-bottom: 1px solid var(--sky-blue);
-      padding: 1rem 1.5rem;
+      z-index: 1000;
+      background: rgba(249, 245, 240, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(21, 19, 19, 0.12);
+      padding: 1.2rem 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-
     .logo {
-      font-size: 1.6rem;
-      font-weight: 800;
-      letter-spacing: 3px;
-      text-transform: lowercase;
-      color: var(--black);
       text-decoration: none;
+      color: var(--black);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.7rem;
+      font-weight: normal;
+      letter-spacing: 1px;
+      text-transform: lowercase;
     }
-
+    .logo span {
+      display: block;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.52rem;
+      letter-spacing: 4px;
+      margin-top: -3px;
+    }
     nav {
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
     }
-
     nav a {
+      position: relative;
       text-decoration: none;
       color: var(--black);
-      font-size: 0.85rem;
-      font-weight: 600;
+      font-size: 0.72rem;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      letter-spacing: 1px;
     }
-
-    /* HERO SECTION */
-    .hero {
-      background: linear-gradient(180deg, var(--sky-blue) 0%, #FFFFFF 100%);
-      padding: 3rem 1.5rem 4rem 1.5rem;
-      text-align: center;
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 1px;
+      background: var(--black);
+      transition: width 0.3s ease;
     }
-
-    .hero-subtitle {
-      font-size: 0.8rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--gray);
-      margin-bottom: 0.5rem;
-    }
-
-    .hero h1 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-
-    .hero p {
-      font-size: 1rem;
-      color: var(--gray);
-      max-width: 600px;
-      margin: 0 auto 2rem auto;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      background-color: var(--soft-yellow);
-      color: var(--black);
-      padding: 0.9rem 2rem;
-      font-weight: 700;
-      font-size: 0.9rem;
-      border-radius: 30px;
-      text-decoration: none;
-      border: 1.5px solid var(--black);
-      box-shadow: 3px 3px 0px var(--black);
-      transition: all 0.2s ease;
-    }
-
-    .hero-banner-img {
+    nav a:hover::after {
       width: 100%;
-      max-width: 900px;
-      height: 400px;
-      object-fit: cover;
-      border-radius: 16px;
-      margin-top: 2.5rem;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      border: 3px solid #ffffff;
     }
-
-    /* FEATURED SERVICES / SERVICES SECTION */
-    .services {
-      padding: 4rem 1.5rem;
-      background-color: var(--bg);
-      text-align: center;
+    /* =========================
+       HERO
+    ========================= */
+    .hero {
+      min-height: 88vh;
+      padding: 5rem 5% 6rem;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      align-items: center;
+      gap: 5%;
+      background:
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(232, 201, 200, 0.35),
+          transparent 35%
+        ),
+        var(--ivory);
     }
-
-    .section-title {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-      letter-spacing: 1px;
+    .hero-content {
+      max-width: 560px;
     }
-
-    .section-desc {
+    .hero-subtitle {
+      font-size: 0.68rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--champagne);
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      font-weight: normal;
+      line-height: 0.98;
+      letter-spacing: -2px;
+      margin-bottom: 1.6rem;
+    }
+    .hero h1 em {
+      color: #9B6F70;
+      font-style: italic;
+    }
+    .hero p {
       color: var(--gray);
       font-size: 0.95rem;
-      margin-bottom: 2.5rem;
+      max-width: 470px;
+      margin-bottom: 2rem;
     }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      max-width: 1100px;
-      margin: 0 auto;
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.8rem;
+      background: var(--black);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
     }
-
-    .service-card {
-      background-color: var(--light-gray);
-      border: 1px solid var(--sky-blue);
-      padding: 2rem 1.5rem;
-      border-radius: 12px;
-      text-align: left;
+    .cta-btn:hover {
+      background: #9B6F70;
+      transform: translateY(-2px);
     }
-
-    .service-card h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-      color: var(--black);
+    .hero-image-wrapper {
+      position: relative;
     }
-
-    .service-card p {
-      font-size: 0.9rem;
-      color: var(--gray);
-    }
-
-    /* GALLERY / COLLECTIONS SECTION */
-    .collections {
-      padding: 4rem 1.5rem;
-      background-color: var(--light-gray);
-      border-top: 1px solid var(--sky-blue);
-      border-bottom: 1px solid var(--sky-blue);
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      max-width: 1100px;
-      margin: 2rem auto 0 auto;
-    }
-
-    .gallery-card {
-      background: var(--bg);
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(0,0,0,0.08);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-    }
-
-    .gallery-card img {
+    .hero-banner-img {
       width: 100%;
-      height: 380px;
+      height: 650px;
       object-fit: cover;
       display: block;
+      border-radius: 0;
+      box-shadow: 18px 18px 0 var(--blush-light);
     }
-
-    .gallery-card-content {
-      padding: 1.25rem;
+    .hero-label {
+      position: absolute;
+      bottom: -35px;
+      left: -35px;
+      background: var(--black);
+      color: var(--white);
+      padding: 1.2rem 1.4rem;
+      font-size: 0.6rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
     }
-
-    .gallery-card-content h4 {
-      font-size: 1.1rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .gallery-card-content p {
-      font-size: 0.85rem;
-      color: var(--gray);
-    }
-
-    /* CONTACT & FOOTER */
-    .contact-section {
-      padding: 4rem 1.5rem;
+    /* =========================
+       INTRO
+    ========================= */
+    .intro {
+      padding: 7rem 8%;
       text-align: center;
-      background-color: var(--soft-yellow);
-      border-bottom: 1px solid var(--black);
+      background: var(--cream);
     }
-
-    .contact-btn {
-      display: inline-block;
-      margin-top: 1.5rem;
-      background-color: var(--black);
-      color: #ffffff;
-      padding: 0.9rem 2rem;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    footer {
-      background-color: var(--black);
-      color: #ffffff;
-      padding: 3rem 1.5rem;
-      text-align: center;
-      font-size: 0.85rem;
-    }
-
-    footer p {
-      opacity: 0.8;
+    .eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 4px;
+      color: var(--champagne);
+      text-transform: uppercase;
       margin-bottom: 1rem;
     }
-
+    .intro h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: normal;
+      font-size: clamp(2rem, 4vw, 3.8rem);
+      max-width: 850px;
+      margin: 0 auto 1.5rem;
+    }
+    .intro p {
+      max-width: 650px;
+      margin: auto;
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+    /* =========================
+       SERVICES
+    ========================= */
+    .services {
+      padding: 6rem 5%;
+      background: var(--ivory);
+    }
+    .section-heading {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .section-heading h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.5rem;
+      font-weight: normal;
+    }
+    .section-heading p {
+      color: var(--gray);
+      font-size: 0.85rem;
+      margin-top: 0.6rem;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 1100px;
+      margin: auto;
+      border-top: 1px solid rgba(21,19,19,0.15);
+      border-bottom: 1px solid rgba(21,19,19,0.15);
+    }
+    .service-card {
+      padding: 3rem 2rem;
+      text-align: center;
+      border-right: 1px solid rgba(21,19,19,0.15);
+    }
+    .service-card:last-child {
+      border-right: none;
+    }
+    .service-number {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 0.8rem;
+      color: var(--champagne);
+      margin-bottom: 1.5rem;
+    }
+    .service-card h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
+      font-weight: normal;
+      margin-bottom: 0.8rem;
+    }
+    .service-card p {
+      color: var(--gray);
+      font-size: 0.82rem;
+    }
+    /* =========================
+       COLLECTIONS
+    ========================= */
+    .collections {
+      padding: 7rem 5%;
+      background: var(--black);
+      color: var(--white);
+    }
+    .collections .section-heading p {
+      color: #BDB5B1;
+    }
+    .collections .eyebrow {
+      color: var(--blush);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .gallery-card {
+      position: relative;
+      overflow: hidden;
+      background: #211D1D;
+    }
+    .gallery-card img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .gallery-card:hover img {
+      transform: scale(1.04);
+    }
+    .gallery-overlay {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 2rem;
+      background:
+        linear-gradient(
+          transparent,
+          rgba(0,0,0,0.85)
+        );
+    }
+    .gallery-overlay h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.8rem;
+      font-weight: normal;
+    }
+    .gallery-overlay p {
+      font-size: 0.75rem;
+      color: #DDD4D0;
+      margin-top: 0.3rem;
+    }
+    /* =========================
+       CONTACT
+    ========================= */
+    .contact-section {
+      padding: 7rem 8%;
+      text-align: center;
+      background: var(--blush-light);
+    }
+    .contact-section h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      font-weight: normal;
+      margin-bottom: 1rem;
+    }
+    .contact-section p {
+      max-width: 600px;
+      margin: auto;
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+    .contact-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background: var(--black);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: 0.3s ease;
+    }
+    .contact-btn:hover {
+      background: var(--champagne);
+      color: var(--black);
+    }
+    /* =========================
+       FOOTER
+    ========================= */
+    footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 3rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.7rem;
+    }
+    .footer-logo {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.5rem;
+    }
+    .footer-logo span {
+      display: block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.45rem;
+      letter-spacing: 4px;
+      margin-top: -3px;
+    }
     .social-links {
       display: flex;
-      justify-content: center;
       gap: 1.5rem;
-      margin-top: 1rem;
     }
-
     .social-links a {
-      color: var(--sky-blue);
+      color: var(--blush);
       text-decoration: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
-
-    @media (max-width: 600px) {
-      nav { display: none; } /* Mobile clean view */
-      .hero h1 { font-size: 1.8rem; }
-      .hero-banner-img { height: 280px; }
+    /* =========================
+       MOBILE
+    ========================= */
+    @media (max-width: 800px) {
+      header {
+        padding: 1rem 5%;
+      }
+      nav {
+        display: none;
+      }
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 4rem;
+      }
+      .hero h1 {
+        font-size: 3.2rem;
+      }
+      .hero-banner-img {
+        height: 500px;
+      }
+      .hero-label {
+        left: 15px;
+        bottom: -20px;
+      }
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      .service-card {
+        border-right: none;
+        border-bottom: 1px solid rgba(21,19,19,0.15);
+      }
+      .service-card:last-child {
+        border-bottom: none;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery-card img {
+        height: 500px;
+      }
+      footer {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
-
-  <!-- HEADER -->
+  <!-- =========================
+       HEADER
+  ========================= -->
   <header>
-    <a href="#" class="logo">peaches atelier</a>
+    <a href="#" class="logo">
+      peaches
+      <span>ATELIER</span>
+    </a>
     <nav>
       <a href="#about">About</a>
       <a href="#services">Services</a>
@@ -273,93 +443,191 @@
       <a href="#contact">Contact</a>
     </nav>
   </header>
-
-  <!-- HERO SECTION -->
+  <!-- =========================
+       HERO
+  ========================= -->
   <section class="hero" id="about">
-    <div class="hero-subtitle">WELCOME TO PEACHES ATELIER</div>
-    <h1>Fashion shaped by craft, imagination & culture</h1>
-    <p>An independent high-fashion atelier creating expressive luxury pieces that exist between artistry, identity, and contemporary style.</p>
-    <a href="#collections" class="cta-btn">Explore Our World →</a>
-    
-    <img class="hero-banner-img" src="https://i.postimg.cc/4yTnV6pT/IMG-8431.jpg?auto=format&fit=crop&w=1200&q=80" alt="Peaches Atelier Hero Model">
+    <div class="hero-content">
+      <div class="hero-subtitle">
+        Welcome to Peaches Atelier
+      </div>
+      <h1>
+        Fashion shaped by
+        <em>craft</em>,
+        imagination & culture.
+      </h1>
+      <p>
+        An independent fashion atelier creating expressive
+        luxury pieces where craftsmanship, identity and
+        contemporary style meet.
+      </p>
+      <a href="#collections" class="cta-btn">
+        Explore Our World →
+      </a>
+    </div>
+    <div class="hero-image-wrapper">
+      <img
+        class="hero-banner-img"
+        src="https://i.postimg.cc/4yTnV6pT/IMG-8431.jpg"
+        alt="Peaches Atelier fashion campaign"
+      >
+      <div class="hero-label">
+        GENZ GENESIS · 2026
+      </div>
+    </div>
   </section>
-
-  <!-- SERVICES SECTION -->
+  <!-- =========================
+       INTRODUCTION
+  ========================= -->
+  <section class="intro">
+    <div class="eyebrow">
+      The Atelier
+    </div>
+    <h2>
+      Where fashion becomes
+      a form of expression.
+    </h2>
+    <p>
+      Peaches Atelier explores the relationship between
+      fashion, art and culture through distinctive garments,
+      visual stories and contemporary couture.
+    </p>
+  </section>
+  <!-- =========================
+       SERVICES
+  ========================= -->
   <section class="services" id="services">
-    <h2 class="section-title">WHAT WE DO</h2>
-    <p class="section-desc">Tailored craftsmanship and bespoke fashion services</p>
-
+    <div class="section-heading">
+      <div class="eyebrow">
+        Our World
+      </div>
+      <h2>What We Do</h2>
+      <p>
+        Craft, creativity and visual storytelling.
+      </p>
+    </div>
     <div class="services-grid">
       <div class="service-card">
+        <div class="service-number">01</div>
         <h3>Fashion Design</h3>
-        <p>Contemporary bespoke garments, high-fashion tailored wear, and custom couture pieces crafted to perfection.</p>
+        <p>
+          Bespoke garments, contemporary silhouettes
+          and couture pieces developed with intention.
+        </p>
       </div>
-
       <div class="service-card">
+        <div class="service-number">02</div>
         <h3>Creative Direction</h3>
-        <p>Visual storytelling, high-concept brand campaigns, and artistic direction for runway and editorial projects.</p>
+        <p>
+          Artistic concepts, campaigns and visual
+          direction built around a distinct fashion story.
+        </p>
       </div>
-
       <div class="service-card">
+        <div class="service-number">03</div>
         <h3>Editorial & Styling</h3>
-        <p>Fashion stories, magazine editorials, and exclusive red-carpet lookbook styling for distinct identities.</p>
+        <p>
+          Fashion editorials, styling and visual stories
+          created to communicate identity and culture.
+        </p>
       </div>
     </div>
   </section>
-
-  <!-- GALLERY / COLLECTIONS -->
+  <!-- =========================
+       COLLECTIONS
+  ========================= -->
   <section class="collections" id="collections">
-    <div style="text-align: center;">
-      <h2 class="section-title">EXPLORE THE WORLD</h2>
-      <p class="section-desc">Discover our latest collections and editorial campaigns</p>
+    <div class="section-heading">
+      <div class="eyebrow">
+        Discover
+      </div>
+      <h2>Explore the World</h2>
+      <p>
+        Campaigns, collections and editorial stories.
+      </p>
     </div>
-
     <div class="gallery-grid">
-      <!-- Card 1 -->
+      <!-- CAMPAIGNS -->
       <div class="gallery-card">
-        <img src="https://i.postimg.cc/rsvMXMFF/IMG-8197.jpg?auto=format&fit=crop&w=800&q=80" alt="Campaigns">
-        <div class="gallery-card-content">
-          <h4>Campaigns</h4>
-          <p>Stories that move culture and redefine contemporary luxury silhouette.</p>
+        <img
+          src="https://i.postimg.cc/rsvMXMFF/IMG-8197.jpg"
+          alt="Peaches Atelier Campaigns"
+        >
+        <div class="gallery-overlay">
+          <h3>Campaigns</h3>
+          <p>
+            Stories that move culture.
+          </p>
         </div>
       </div>
-
-      <!-- Card 2 -->
+      <!-- COLLECTIONS -->
       <div class="gallery-card">
-        <img src="https://https://i.postimg.cc/rsvMXMFF/IMG-8197.jpgf?auto=format&fit=crop&w=800&q=80" alt="Collections">
-        <div class="gallery-card-content">
-          <h4>Collections</h4>
-          <p>Wearable art and timeless couture tailored for high expression.</p>
+        <img
+          src="https://i.postimg.cc/rsvMXMFF/IMG-8197.jpg"
+          alt="Peaches Atelier Collections"
+        >
+        <div class="gallery-overlay">
+          <h3>Collections</h3>
+          <p>
+            Wearable art. Contemporary expression.
+          </p>
         </div>
       </div>
-
-      <!-- Card 3 -->
+      <!-- MAGAZINES -->
       <div class="gallery-card">
-        <img src="https://i.postimg.cc/k4svpgsz/88A323FE-6D9E-48B3-9F80-3409C9049EA3.png?auto=format&fit=crop&w=800&q=80" alt="Magazines">
-        <div class="gallery-card-content">
-          <h4>Magazines & Editorial</h4>
-          <p>Fashion, culture, and artistry documented in curated issues.</p>
+        <img
+          src="https://i.postimg.cc/k4svpgsz/88A323FE-6D9E-48B3-9F80-3409C9049EA3.png"
+          alt="Peaches Atelier Magazine"
+        >
+        <div class="gallery-overlay">
+          <h3>Magazines</h3>
+          <p>
+            Fashion. Culture. Art.
+          </p>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- CONTACT SECTION -->
+  <!-- =========================
+       CONTACT
+  ========================= -->
   <section class="contact-section" id="contact">
-    <h2 class="section-title">LET'S CREATE SOMETHING.</h2>
-    <p>For collaborations, custom pieces, press, or general enquiries, reach out directly to our team.</p>
-    <a href="mailto:contact@peachesatelier.com" class="contact-btn">Send an Enquiry</a>
+    <div class="eyebrow">
+      Let's Work Together
+    </div>
+    <h2>
+      Let's create something beautiful.
+    </h2>
+    <p>
+      For collaborations, custom pieces, press,
+      styling or general enquiries, get in touch
+      with Peaches Atelier.
+    </p>
+    <a
+      href="mailto:contact@peachesatelier.com"
+      class="contact-btn"
+    >
+      Send an Enquiry
+    </a>
   </section>
-
-  <!-- FOOTER -->
+  <!-- =========================
+       FOOTER
+  ========================= -->
   <footer>
-    <p>© 2026 Peaches Atelier. All rights reserved.</p>
+    <div class="footer-logo">
+      peaches
+      <span>ATELIER</span>
+    </div>
+    <p>
+      © 2026 Peaches Atelier. All rights reserved.
+    </p>
     <div class="social-links">
       <a href="#">Instagram</a>
       <a href="#">WhatsApp</a>
-      <a href="#">Email</a>
+      <a href="mailto:contact@peachesatelier.com">
+        Email
+      </a>
     </div>
   </footer>
-
 </body>
 </html>
